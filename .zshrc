@@ -107,6 +107,8 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+eval $(thefuck --alias)
+
 # from https://github.com/MohamedElashri/exa-zsh/blob/main/exa-zsh.plugin.zsh
 alias ls='eza' # just replace ls by exa and allow all other exa arguments
 alias l='ls -lbF' #   list, size, type
