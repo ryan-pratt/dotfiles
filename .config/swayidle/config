@@ -1,0 +1,1 @@
+before-sleep 'swaylock -C ~/.config/swaylock/frappe.conf -i /usr/share/wallpapers/Next/contents/images_dark/3200x2000.png'
