@@ -108,6 +108,9 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 eval $(thefuck --alias)
+alias vim='nvim'
+alias nv='nvim'
+alias fv='nvim $(fzf)'
 
 # from https://github.com/MohamedElashri/exa-zsh/blob/main/exa-zsh.plugin.zsh
 alias ls='eza' # just replace ls by exa and allow all other exa arguments
