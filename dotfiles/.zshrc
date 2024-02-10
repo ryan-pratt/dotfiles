@@ -117,6 +117,10 @@ alias lx='ls -lbhHigUmuSa@' # all list and extended
 alias tree='eza --tree' # tree view
 alias lS='eza -1' # one column by just names
 
+alias vim='nvim'
+alias nv='nvim'
+alias fv='nvim $(fzf)'
+
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
