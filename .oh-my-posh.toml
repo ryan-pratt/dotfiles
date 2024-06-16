@@ -91,7 +91,7 @@ alignment = "right"
   foreground = "#ffffff"
   powerline_symbol = "\ue0b2"
   invert_powerline = true
-  template = " {{ .FormattedMs }} "
+  template = " {{ .FormattedMs }} \u231b"
 
   [[blocks.segments]]
   type = "battery"
@@ -127,7 +127,7 @@ alignment = "right"
   background = "#003543"
   foreground = "#fff"
   invert_powerline = true
-  template = "<#fff> \ue641 </>{{ .CurrentDate | date .Format }} "
+  template = " {{ .CurrentDate | date .Format }} <#fff>\ue641</> "
 
 [[blocks]]
 type = "prompt"
