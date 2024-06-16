@@ -51,5 +51,7 @@ alias vim='nvim'
 alias nv='nvim'
 alias fv='nvim $(fzf)'
 
+alias lg='lazygit'
+
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
