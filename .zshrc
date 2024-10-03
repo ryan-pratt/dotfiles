@@ -1,3 +1,36 @@
+# ====================== PREREQUISITES ====================== 
+# bat (cat replacement)
+# eza (ls replacement)
+# fzf (fuzzy finder for files & command history)
+# git-delta (pager for git and diff)
+# lazygit (TUI for git)
+# neovim (editor)
+# npm (for default LSP config in neovim)
+# oh-my-posh (prompt eye candy)
+# ripgrep (for project search in neovim)
+# z (cd replacement)
+# ========================== SETUP ========================== 
+# 0. clone into ~/dotfiles
+# 1. install the above prereqs and the font file in this dir
+# 2. `stow .` in this dir
+# 3. neovim should automatically install all plugins on first launch
+# 4. open lazygit, then open its config file by pressing 1 then e, and add this:
+# git:
+#   paging:
+#     colorArg: always
+#     pager: delta --dark --paging=never --hyperlinks --line-numbers --side-by-side
+# ========================== TODOS ========================== 
+# - [ ] figure out a way to not have to do that lazygit configuration manually
+# - [ ] see if I can add Obsidian preferences (and maybe even plugins?)
+# ===========================================================
+
+export PATH="/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+export PATH="/opt/homebrew/opt/ruby@3.2/bin:$PATH"
+export PATH="/opt/homebrew/opt/python@3.11/libexec/bin:$PATH"
+export PATH="/Users/rpratt/repos/cosmos:$PATH"
+ulimit -n 4096
+
 if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
   eval "$(oh-my-posh init zsh --config '~/.oh-my-posh.toml')"
 fi
@@ -46,6 +79,9 @@ alias lx='ls -lbhHigUmuSa@' # all list and extended
 alias tree='eza --tree' # tree view
 alias lS='eza -1' # one column by just names
 alias cat='bat'
+alias fc='cat $(fzf)'
+alias rd='rm -rd'
+alias rdf='rm -rdf'
 
 alias vim='nvim'
 alias nv='nvim'
@@ -53,5 +89,10 @@ alias fv='nvim $(fzf)'
 
 alias lg='lazygit'
 
+alias y='yarn'
+alias yb='yarn build'
+alias oc3='openc3.sh'
 
+
+eval "$(zoxide init zsh)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

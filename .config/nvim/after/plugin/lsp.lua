@@ -24,13 +24,32 @@ require('mason-lspconfig').setup({
     lsp_zero.default_setup,
   },
   ensure_installed = {
-    'lua_ls',
-    'tsserver',
     'eslint',
-    'rust_analyzer',
     'jdtls',
+    'lua_ls',
+    'rust_analyzer',
+    'tsserver',
+    'volar',
   }
 })
+
+-- ///////// Fix for eslint in COSMOS
+local util = require 'lspconfig.util'
+
+require('lspconfig').eslint.setup {
+  -- Copied from nvim-lspconfig/lua/lspconfig/server_conigurations/eslint.js
+  root_dir = util.root_pattern(
+   '.eslintrc',
+   '.eslintrc.js',
+   '.eslintrc.cjs',
+   '.eslintrc.yaml',
+   '.eslintrc.yml',
+   '.eslintrc.json'
+   -- Disabled to prevent "No ESLint configuration found" exceptions
+   -- 'package.json',
+ ),
+}
+-- /////////////////////////////////
 
 local cmp = require('cmp')
 local cmp_format = lsp_zero.cmp_format()
