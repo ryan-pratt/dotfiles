@@ -27,8 +27,16 @@
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export PATH="/opt/homebrew/opt/ruby@3.2/bin:$PATH"
+export PATH="/opt/homebrew/lib/ruby/gems/3.2.0/bin:$PATH"
 export PATH="/opt/homebrew/opt/python@3.11/libexec/bin:$PATH"
 export PATH="/Users/rpratt/repos/cosmos:$PATH"
+export PATH="/Users/rpratt/.yarn/bin:$PATH"
+export PATH="/Applications/Docker.app/Contents/Resources/bin:$PATH"
+
+export RUBYGEMS_URL="https://rubygems.org"
+export OPENC3_CLOUD=local
+export OPENC3_DEVEL=~/repos/cosmos/openc3
+
 ulimit -n 4096
 
 if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
@@ -83,16 +91,18 @@ alias fc='cat $(fzf)'
 alias rd='rm -rd'
 alias rdf='rm -rdf'
 
-alias vim='nvim'
-alias nv='nvim'
+alias nv='nvim .'
 alias fv='nvim $(fzf)'
-
 alias lg='lazygit'
-
+alias d='docker'
 alias y='yarn'
 alias yb='yarn build'
+alias o='openc3.sh'
 alias oc3='openc3.sh'
+alias r='rails'
+alias rs='rails server'
 
+eval "$(rbenv init - --no-rehash zsh)"
 
 eval "$(zoxide init zsh)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
