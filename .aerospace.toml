@@ -57,6 +57,10 @@ outer.bottom =     0
 outer.top =        0
 outer.right =      0
 
+[[on-window-detected]]
+if.app-id = 'com.google.Chrome'
+run = ['layout floating']
+
 # send all new windows to workspace 10 (built-in display)
 [[on-window-detected]]
 # run = ['layout floating', 'move-node-to-workspace 10']
