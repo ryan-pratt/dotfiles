@@ -1,0 +1,2 @@
+firmware/all_firmware.tar.gz filter=lfs diff=lfs merge=lfs -text
+firmware/kernelcache.release.mac14g filter=lfs diff=lfs merge=lfs -text
