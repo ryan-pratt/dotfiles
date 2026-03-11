@@ -72,9 +72,6 @@
       isNormalUser = true;
       shell = pkgs.zsh;
       extraGroups = [ "wheel" ]; # 'wheel' enables ‘sudo’ for the user.
-      # packages = with pkgs; [
-      #   inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
-      # ];
     };
   };
 
@@ -101,7 +98,6 @@
     kdePackages.kio-extras
     samba
     # kdePackages.kio-fuse
-    # inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
