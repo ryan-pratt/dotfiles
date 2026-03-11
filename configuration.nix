@@ -95,9 +95,11 @@
     pkgs.ghostty
     kdePackages.dolphin
     kdePackages.qtsvg
+    kdePackages.kio
     kdePackages.kio-extras
+    kdePackages.kio-fuse
     samba
-    # kdePackages.kio-fuse
+    keepassxc
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
