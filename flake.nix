@@ -7,6 +7,7 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    xremap-flake.url = "github:xremap/nix-flake";
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -21,8 +22,24 @@
         system = "aarch64-linux";
         modules = [
           ./configuration.nix
+          inputs.xremap-flake.nixosModules.default
           home-manager.nixosModules.home-manager
           {
+            services.xremap = {
+              enable = true;
+              config.modmap = [
+                {
+                  name = "Better ctrl";
+                  remap = {
+                    CapsLock = {
+                      held = "Ctrl_L";
+                      alone = "CapsLock"; 
+                      alone_timeout_millis = 200;
+                    };
+                  };
+                }
+              ];
+            };
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.users.rpratt = ./home.nix;
