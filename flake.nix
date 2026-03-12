@@ -30,9 +30,13 @@
               config.modmap = [
                 {
                   name = "Better ctrl";
+                  remap = { "CapsLock" = "Ctrl_L"; };
+                }
+                {
+                  name = "Better caps";
                   remap = {
-                    CapsLock = {
-                      held = "Ctrl_L";
+                    Shift_L = {
+                      held = "Shift_L";
                       alone = "CapsLock"; 
                       alone_timeout_millis = 200;
                     };
