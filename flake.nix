@@ -25,6 +25,16 @@
           inputs.xremap-flake.nixosModules.default
           home-manager.nixosModules.home-manager
           {
+            # services.openvpn.servers = {
+            #   fast = {
+            #     config = '' /etc/openvpn-conf/f.udp.ovpn '';
+            #     updateResolvConf = true;
+            #   };
+            #   secure = {
+            #     config = '' /etc/openvpn-conf/s.udp.ovpn '';
+            #     updateResolvConf = true;
+            #   };
+            # };
             services.xremap = {
               enable = true;
               config.modmap = [

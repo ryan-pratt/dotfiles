@@ -90,6 +90,8 @@
     brightnessctl
     git
     git-lfs
+    openvpn
+    update-resolv-conf
     vim
     wget
     htop
@@ -120,6 +122,9 @@
     MatchName=xremap
     AttrKeyboardIntegration=internal
   '';
+
+  # Fix for OpenVPN update-resolve-conf
+  environment.etc.openvpn.source = "${pkgs.update-resolv-conf}/libexec/openvpn";
 
   services.displayManager.sddm = {
     enable = true;
