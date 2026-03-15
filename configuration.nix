@@ -88,6 +88,7 @@
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
     brightnessctl
+    delta
     git
     git-lfs
     openvpn
