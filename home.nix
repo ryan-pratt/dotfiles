@@ -3,6 +3,7 @@
 {
   imports = [
     ./hm-configs/hyprland.nix
+    ./hm-configs/waybar.nix
   ];
 
   home.username = "rpratt";
