@@ -92,6 +92,7 @@
     git
     git-lfs
     openvpn
+    playerctl
     update-resolv-conf
     vim
     wget
