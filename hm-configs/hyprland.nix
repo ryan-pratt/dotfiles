@@ -7,9 +7,11 @@
       "$terminal" = "ghostty";
       "$fileManager" = "dolphin";
       "$browser" = "zen-beta";
+      "$lockScreen" = "swaylock";
 
       exec-once = [
         "waybar"
+        "swayidle"
         "[workspace 1 silent] $browser"
         "[workspace 2 silent] $terminal"
       ];
@@ -20,6 +22,7 @@
 
       bind = [
        "$mod, C, killactive,"
+       "$mod SHIFT, L, exec, $lockScreen"
        "$mod, M, exit,"
        "$mod, H, movefocus, l" 
        "$mod, J, movefocus, d" 

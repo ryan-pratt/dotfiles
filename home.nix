@@ -22,6 +22,18 @@
     };
   };
 
+  programs.swaylock.enable = true;
+  services.swaync.enable = true;
+  services.swayidle = {
+    enable = true;
+    timeouts = [
+      { timeout = 300; command = "${pkgs.swaylock}/bin/swaylock"; }
+    ];
+    events = [
+      { event = "before-sleep"; command = "${pkgs.swaylock}/bin/swaylock"; }
+    ];
+  };
+
   xdg.autostart.enable = true;
 
   programs.home-manager.enable = true;
