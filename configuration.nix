@@ -139,6 +139,16 @@
     implementation = "broker";
   };
 
+  programs.ssh = {
+    startAgent = true;
+    extraConfig = ''
+      Host github.com
+        Hostname ssh.github.com
+        Port 443
+        User git
+    '';
+  };
+
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
