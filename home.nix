@@ -10,6 +10,7 @@
   home.homeDirectory = "/home/rpratt";
 
   home.packages = with pkgs; [
+    pkgs.nerd-fonts.fira-code
     inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".default
   ];
 
@@ -33,6 +34,8 @@
       { event = "before-sleep"; command = "${pkgs.swaylock}/bin/swaylock"; }
     ];
   };
+
+  fonts.fontconfig.enable = true;
 
   xdg.autostart.enable = true;
 
