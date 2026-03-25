@@ -38,6 +38,10 @@ return require('packer').startup(function(use)
   use('mfussenegger/nvim-jdtls')
 
   use {
+    'folke/flash.nvim',
+  }
+
+  use {
     'mikavilpas/yazi.nvim',
     -- Optional: add a configuration function
     config = function()

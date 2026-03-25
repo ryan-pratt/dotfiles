@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "/Users/rpratt/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
   },
+  ["flash.nvim"] = {
+    loaded = true,
+    path = "/Users/rpratt/.local/share/nvim/site/pack/packer/start/flash.nvim",
+    url = "https://github.com/folke/flash.nvim"
+  },
   harpoon = {
     loaded = true,
     path = "/Users/rpratt/.local/share/nvim/site/pack/packer/start/harpoon",
