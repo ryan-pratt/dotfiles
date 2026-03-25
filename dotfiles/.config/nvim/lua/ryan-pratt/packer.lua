@@ -38,6 +38,19 @@ return require('packer').startup(function(use)
   use('mfussenegger/nvim-jdtls')
 
   use {
+    'mikavilpas/yazi.nvim',
+    -- Optional: add a configuration function
+    config = function()
+      require('yazi').setup({
+        open_for_directories = true,
+      })
+    end,
+    init = function()
+      vim.g.loaded_netrwPlugin = 1
+    end,
+  }
+
+  use {
     "windwp/nvim-autopairs",
     event = "InsertEnter",
     config = function()
