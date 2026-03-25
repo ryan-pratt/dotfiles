@@ -28,33 +28,31 @@ require('mason-lspconfig').setup({
     'jdtls',
     'lua_ls',
     'rust_analyzer',
-    'volar',
+    'vue_ls',
   }
 })
-require("mason-lspconfig").setup_handlers {
-  function(server_name)
-    require("lspconfig")[server_name].setup {}
-  end,
 
-  ruby_lsp = function()
-    require('lspconfig').ruby_lsp.setup {
-      -- fix for rbenv
-      cmd = { vim.fn.expand('~/.rbenv/shims/ruby-lsp') },
-      -- cmd_env = { BUNDLE_GEMFILE = vim.fn.getenv('GLOBAL_GEMFILE') },
+require('mason-lspconfig').get_installed_servers()
+vim.lsp.config("eslint", {})
+vim.lsp.config("jdtls", {})
+vim.lsp.config("lua_ls", {})
+vim.lsp.config("rust_analyzer", {})
+vim.lsp.config("vue_ls", {})
+vim.lsp.config("ruby_lsp", {
+  -- fix for rbenv
+  cmd = { vim.fn.expand('~/.rbenv/shims/ruby-lsp') },
+  -- cmd_env = { BUNDLE_GEMFILE = vim.fn.getenv('GLOBAL_GEMFILE') },
 
-      -- add formatting support by having it call rubocop
-      init_options = {
-        linters = { "rubocop" },
-        formatters = { "rubocop" },
-      },
-    }
-  end,
-}
+  -- add formatting support by having it call rubocop
+  init_options = {
+    linters = { "rubocop" },
+    formatters = { "rubocop" },
+  },
+})
 
 -- ///////// Fix for eslint in COSMOS
 local util = require 'lspconfig.util'
-
-require('lspconfig').eslint.setup {
+vim.lsp.config("eslint", {
   -- Copied from nvim-lspconfig/lua/lspconfig/server_conigurations/eslint.js
   settings = {
     packageManager = 'yarn'
@@ -72,7 +70,7 @@ require('lspconfig').eslint.setup {
   -- Disabled to prevent "No ESLint configuration found" exceptions
   -- 'package.json',
   ),
-}
+})
 -- /////////////////////////////////
 
 local cmp = require('cmp')
