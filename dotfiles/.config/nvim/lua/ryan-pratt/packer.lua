@@ -45,7 +45,7 @@ return require('packer').startup(function(use)
     -- Optional: add a configuration function
     config = function()
       require('yazi').setup({
-        open_for_directories = true,
+        open_for_directories = false,
       })
     end,
     init = function()
