@@ -7,6 +7,7 @@
       url = "github:nix-community/home-manager/release-25.11";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    llm-agents.url = "github:numtide/llm-agents.nix";
     xremap-flake.url = "github:xremap/nix-flake";
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
@@ -20,6 +21,7 @@
     nixosConfigurations = {
       nixos-macbook = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
+        specialArgs = { inherit inputs; };
         modules = [
           ./configuration.nix
           inputs.xremap-flake.nixosModules.default

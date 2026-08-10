@@ -98,27 +98,32 @@
 
   # List packages installed in system profile.
   # You can use https://search.nixos.org/ to find more packages (and options).
-  environment.systemPackages = with pkgs; [
-    brightnessctl
-    delta
-    dig
-    git
-    git-lfs
-    openvpn
-    playerctl
-    update-resolv-conf
-    vim
-    wget
-    htop
-    pkgs.ghostty
-    kdePackages.dolphin
-    kdePackages.qtsvg
-    kdePackages.kio
-    kdePackages.kio-extras
-    kdePackages.kio-fuse
-    samba
-    keepassxc
-  ];
+  environment.systemPackages =
+    (with pkgs; [
+      brightnessctl
+      delta
+      dig
+      git
+      git-lfs
+      openvpn
+      playerctl
+      update-resolv-conf
+      vim
+      wget
+      htop
+      pkgs.ghostty
+      kdePackages.dolphin
+      kdePackages.qtsvg
+      kdePackages.kio
+      kdePackages.kio-extras
+      kdePackages.kio-fuse
+      samba
+      keepassxc
+    ])
+    ++
+    (with inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}; [
+      pi
+    ]);
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
