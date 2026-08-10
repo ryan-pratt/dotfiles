@@ -54,7 +54,18 @@
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
 
   # Enable CUPS to print documents.
-  # services.printing.enable = true;
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+  };
+  services.printing = {
+    enable = true;
+    drivers = with pkgs; [
+      cups-filters
+      cups-browsed
+    ];
+  };
 
   # Enable sound.
   # services.pulseaudio.enable = true;
@@ -90,6 +101,7 @@
   environment.systemPackages = with pkgs; [
     brightnessctl
     delta
+    dig
     git
     git-lfs
     openvpn
