@@ -23,50 +23,40 @@
 # - [ ] figure out a way to not have to do that lazygit configuration manually
 # - [ ] see if I can add Obsidian preferences (and maybe even plugins?)
 # ===========================================================
-
 export PATH="/opt/homebrew/bin:$PATH"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export PATH="/opt/homebrew/opt/ruby@3.2/bin:$PATH"
 export PATH="/opt/homebrew/lib/ruby/gems/3.2.0/bin:$PATH"
 export PATH="/opt/homebrew/opt/python@3.11/libexec/bin:$PATH"
+export PATH="/Users/rpratt/.local/bin:$PATH"
 export PATH="/Users/rpratt/repos/cosmos:$PATH"
-export PATH="/Users/rpratt/.yarn/bin:$PATH"
 export PATH="/Applications/Docker.app/Contents/Resources/bin:$PATH"
-
 export RUBYGEMS_URL="https://rubygems.org"
 export OPENC3_CLOUD=local
 export OPENC3_DEVEL=~/repos/cosmos/openc3
-
+export EDITOR=nvim
 ulimit -n 4096
-
 if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
   eval "$(oh-my-posh init zsh --config '~/.oh-my-posh.toml')"
 fi
-
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search)
-
 # User configuration
-
 # export MANPATH="/usr/local/man:$MANPATH"
-
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
-
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
 # else
 #   export EDITOR='mvim'
 # fi
-
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
-
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
@@ -76,7 +66,6 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search)
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias fv=“fzf —print0 | xargs -0 -o nvim”
-
 # from https://github.com/MohamedElashri/exa-zsh/blob/main/exa-zsh.plugin.zsh
 alias ls='eza' # just replace ls by exa and allow all other exa arguments
 alias l='ls -lbF' #   list, size, type
@@ -84,25 +73,40 @@ alias ll='ls -la' # long, all
 alias llm='ll --sort=modified' # list, long, sort by modification date
 alias la='ls -lbhHigUmuSa' # all list
 alias lx='ls -lbhHigUmuSa@' # all list and extended
+alias lsd='ls -lbF -s newest' # order by date
 alias tree='eza --tree' # tree view
 alias lS='eza -1' # one column by just names
 alias cat='bat'
 alias fc='cat $(fzf)'
 alias rd='rm -rd'
 alias rdf='rm -rdf'
-
 alias nv='nvim .'
 alias fv='nvim $(fzf)'
 alias lg='lazygit'
 alias d='docker'
-alias y='yarn'
-alias yb='yarn build'
+alias ld='lazydocker'
+alias p='pnpm'
+alias pb='pnpm build'
 alias o='openc3.sh'
 alias oc3='openc3.sh'
 alias r='rails'
 alias rs='rails server'
-
 eval "$(rbenv init - --no-rehash zsh)"
-
 eval "$(zoxide init zsh)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+source ~/.safe-chain/scripts/init-posix.sh # Safe-chain Zsh initialization script
+
+# pnpm
+export PNPM_HOME="/Users/rpratt/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+alias -g CMDTLM=$'$(docker ps -a | grep cmd-tlm | awk \'{print $1}\')'
+
+function chpwd() {
+  l
+}
