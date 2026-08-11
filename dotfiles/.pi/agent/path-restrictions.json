@@ -1,0 +1,4 @@
+{
+  "allowedDirs": [".", "~/repos"],
+  "requirePermissionOutside": true
+}
