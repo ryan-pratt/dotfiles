@@ -1,0 +1,8 @@
+.DS_Store
+.config/yarn
+.pi/agent/auth.json
+.pi/agent/sessions/
+.pi/agent/audit.log
+.pi/agent/trust.json
+.pi/agent/models-store.json
+.pi/agent/skills/.DS_Store
