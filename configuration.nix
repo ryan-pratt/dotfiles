@@ -8,7 +8,6 @@
   imports =
     [
       ./hardware-configuration.nix
-      ./apple-silicon-support
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -19,18 +18,21 @@
   # Initrd stage 1 holds a lock on the network card in 26.05
   boot.initrd.network.flushBeforeStage2 = true;
 
-  hardware.asahi.peripheralFirmwareDirectory = ./firmware;
+  hardware.asahi = {
+    enable = true;
+    peripheralFirmwareDirectory = ./firmware;
+  };
 
   networking.hostName = "nixos-macbook";
 
-  # Configure network connections interactively with nmcli or nmtui.
-  networking.networkmanager.enable = true;
-
-  # Do i need this?
-  # networking.wireless.iwd = {
-  #   enable = true;
-  #   settings.General.EnableNetworkConfiguration = true;
-  # };
+  networking.wireless.iwd = {
+    enable = true;
+    settings.General.EnableNetworkConfiguration = true;
+  };
+  networking.networkmanager = {
+    enable = true;
+    wifi.backend = "iwd";
+  };
 
   time.timeZone = "America/Denver";
 

@@ -7,6 +7,12 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    apple-silicon = {
+      # Pinned to last 6.19 kernel version - 7.x has WiFi issues
+      # To upgrade: change to "github:tpwrules/nixos-apple-silicon"
+      url = "github:tpwrules/nixos-apple-silicon/21b3780";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     llm-agents.url = "github:numtide/llm-agents.nix";
     xremap-flake.url = "github:xremap/nix-flake";
     zen-browser = {
@@ -24,6 +30,7 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./configuration.nix
+          inputs.apple-silicon.nixosModules.apple-silicon-support
           inputs.xremap-flake.nixosModules.default
           home-manager.nixosModules.home-manager
           {
