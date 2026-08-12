@@ -16,6 +16,9 @@
   boot.loader.efi.canTouchEfiVariables = false;
   boot.kernelParams = [ "apple_dcp.show_notch=1" ];
 
+  # Initrd stage 1 holds a lock on the network card in 26.05
+  boot.initrd.network.flushBeforeStage2 = true;
+
   hardware.asahi.peripheralFirmwareDirectory = ./firmware;
 
   networking.hostName = "nixos-macbook";
