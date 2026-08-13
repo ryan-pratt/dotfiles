@@ -8,7 +8,6 @@
 # npm (for default LSP config in neovim)
 # oh-my-posh (prompt eye candy)
 # ripgrep (for project search in neovim)
-# z (cd replacement)
 # ========================== SETUP ========================== 
 # 0. clone into ~/dotfiles
 # 1. install the above prereqs and the font file in this dir
@@ -23,22 +22,8 @@
 # - [ ] figure out a way to not have to do that lazygit configuration manually
 # - [ ] see if I can add Obsidian preferences (and maybe even plugins?)
 # ===========================================================
-export PATH="/opt/homebrew/bin:$PATH"
-export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
-export PATH="/opt/homebrew/opt/ruby@3.2/bin:$PATH"
-export PATH="/opt/homebrew/lib/ruby/gems/3.2.0/bin:$PATH"
-export PATH="/opt/homebrew/opt/python@3.11/libexec/bin:$PATH"
-export PATH="/Users/rpratt/.local/bin:$PATH"
-export PATH="/Users/rpratt/repos/cosmos:$PATH"
-export PATH="/Applications/Docker.app/Contents/Resources/bin:$PATH"
-export RUBYGEMS_URL="https://rubygems.org"
-export OPENC3_CLOUD=local
-export OPENC3_DEVEL=~/repos/cosmos/openc3
 export EDITOR=nvim
 ulimit -n 4096
-if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
-  eval "$(oh-my-posh init zsh --config '~/.oh-my-posh.toml')"
-fi
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -65,7 +50,6 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting web-search)
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias fv=“fzf —print0 | xargs -0 -o nvim”
 # from https://github.com/MohamedElashri/exa-zsh/blob/main/exa-zsh.plugin.zsh
 alias ls='eza' # just replace ls by exa and allow all other exa arguments
 alias l='ls -lbF' #   list, size, type
@@ -85,27 +69,7 @@ alias fv='nvim $(fzf)'
 alias lg='lazygit'
 alias d='docker'
 alias ld='lazydocker'
-alias p='pnpm'
-alias pb='pnpm build'
-alias o='openc3.sh'
-alias oc3='openc3.sh'
-alias r='rails'
-alias rs='rails server'
-eval "$(rbenv init - --no-rehash zsh)"
-eval "$(zoxide init zsh)"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-source ~/.safe-chain/scripts/init-posix.sh # Safe-chain Zsh initialization script
-
-# pnpm
-export PNPM_HOME="/Users/rpratt/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
-
-alias -g CMDTLM=$'$(docker ps -a | grep cmd-tlm | awk \'{print $1}\')'
 
 function chpwd() {
   l
