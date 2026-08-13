@@ -60,11 +60,14 @@
                 }
               ];
             };
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.rpratt = ./home.nix;
-            home-manager.extraSpecialArgs = {
-              inherit inputs;
+            home-manager = {
+              backupFileExtension = "bak";
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.rpratt = ./home.nix;
+              extraSpecialArgs = {
+                inherit inputs;
+              };
             };
           }
         ];

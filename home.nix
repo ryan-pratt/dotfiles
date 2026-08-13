@@ -9,6 +9,19 @@
   home.username = "rpratt";
   home.homeDirectory = "/home/rpratt";
 
+  home.file = let
+    dotfilesContent = builtins.attrNames (builtins.readDir ./dotfiles);
+
+    mapDotfiles = filename: {
+      name = filename;
+      value = {
+        source = ./dotfiles/${filename};
+        recursive = true;
+      };
+    };
+  in
+    builtins.listToAttrs (map (mapDotfiles) dotfilesContent);
+
   home.packages = with pkgs; [
     pkgs.nerd-fonts.fira-code
     inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".default
