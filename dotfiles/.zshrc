@@ -69,7 +69,6 @@ alias fv='nvim $(fzf)'
 alias lg='lazygit'
 alias d='docker'
 alias ld='lazydocker'
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 function chpwd() {
   l

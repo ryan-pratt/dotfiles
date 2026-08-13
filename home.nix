@@ -31,6 +31,11 @@
     inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".default
   ];
 
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
   programs.git = {
     enable = true;
     lfs.enable = true;
