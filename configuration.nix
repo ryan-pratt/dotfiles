@@ -112,6 +112,7 @@
       docker
       eza
       fzf
+      gcc
       ghostty
       git
       git-lfs
@@ -126,6 +127,7 @@
       ripgrep
       samba
       starship
+      tree-sitter
       update-resolv-conf
       vim
       wget
