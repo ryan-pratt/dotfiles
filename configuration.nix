@@ -105,25 +105,35 @@
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages =
     (with pkgs; [
+      bat
       brightnessctl
       delta
       dig
+      docker
+      eza
+      fzf
+      ghostty
       git
       git-lfs
+      htop
+      keepassxc
+      lazydocker
+      lazygit
+      neovim
+      nodejs_22
       openvpn
       playerctl
+      ripgrep
+      samba
       update-resolv-conf
       vim
       wget
-      htop
-      pkgs.ghostty
+
       kdePackages.dolphin
       kdePackages.qtsvg
       kdePackages.kio
       kdePackages.kio-extras
       kdePackages.kio-fuse
-      samba
-      keepassxc
     ])
     ++
     (with inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}; [
