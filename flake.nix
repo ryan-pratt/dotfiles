@@ -20,13 +20,13 @@
     };
   };
 
-  outputs = inputs@{ self, nixpkgs, home-manager, zen-browser, ... }: {
+  outputs = inputs@{ self, nixpkgs, home-manager, ... }: {
     nixosConfigurations = {
-      nixos-macbook = nixpkgs.lib.nixosSystem {
+      hailstone = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";
         specialArgs = { inherit inputs; };
         modules = [
-          ./configuration.nix
+          ./hosts/hailstone
           inputs.apple-silicon.nixosModules.apple-silicon-support
           inputs.xremap-flake.nixosModules.default
           home-manager.nixosModules.home-manager
@@ -64,7 +64,7 @@
               backupFileExtension = "bak";
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.rpratt = ./home.nix;
+              users.rpratt = import ./home/desktop.nix;
               extraSpecialArgs = {
                 inherit inputs;
               };
