@@ -76,6 +76,11 @@
     };
   };
 
+  programs.starship = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
   programs.swaylock.enable = true;
   services.swaync.enable = true;
   services.swayidle = {

@@ -125,6 +125,7 @@
       playerctl
       ripgrep
       samba
+      starship
       update-resolv-conf
       vim
       wget

@@ -6,7 +6,7 @@
 # lazygit (TUI for git)
 # neovim (editor)
 # npm (for default LSP config in neovim)
-# oh-my-posh (prompt eye candy)
+# starship (prompt eye candy)
 # ripgrep (for project search in neovim)
 # ========================== SETUP ========================== 
 # 0. clone into ~/dotfiles
@@ -73,3 +73,5 @@ alias ld='lazydocker'
 function chpwd() {
   l
 }
+
+eval "$(starship init zsh)"

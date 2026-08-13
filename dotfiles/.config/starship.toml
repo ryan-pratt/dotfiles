@@ -1,0 +1,125 @@
+add_newline = true
+
+format = """
+[](bg:#003543 fg:#003543)\
+$os\
+$username\
+[](bg:#0087D8 fg:#003543)\
+$directory\
+[](bg:#d2ff5e fg:#0087D8)\
+$git_branch\
+$git_status\
+[](fg:#d2ff5e)\
+$fill\
+$status\
+$cmd_duration\
+$battery\
+$python\
+$time\
+$line_break\
+$character"""
+
+[fill]
+symbol = " "
+
+[os]
+disabled = false
+style = "bg:#003543 fg:#fff"
+format = "[ $symbol]($style)"
+
+[os.symbols]
+NixOS = ""
+Macos = ""
+Linux = ""
+Windows = ""
+
+[username]
+show_always = true
+style_user = "bg:#003543 fg:#d2ff5e"
+style_root = "bg:#003543 fg:#ff0000"
+format = "[ $user ]($style)"
+
+[directory]
+style = "bg:#0087D8 fg:#003544"
+format = "[  $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+truncate_to_repo = false
+
+[directory.substitutions]
+"Documents" = "󰈙"
+"Downloads" = ""
+"Music" = ""
+"Pictures" = ""
+
+[git_branch]
+style = "bg:#d2ff5e fg:#193549"
+format = "[ $symbol$branch ]($style)"
+symbol = " "
+
+[git_status]
+style = "bg:#d2ff5e fg:#193549"
+format = "[$all_status$ahead_behind]($style)"
+conflicted = "="
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+untracked = "?${count}"
+stashed = " ${count}"
+modified = " ${count}"
+staged = " ${count}"
+renamed = "»${count}"
+deleted = "✘${count}"
+
+[status]
+disabled = false
+style = "bg:#33DD2D fg:#242424"
+success_style = "bg:#33DD2D fg:#242424"
+failure_style = "bg:#f1184c fg:#242424"
+format = "[](fg:#33DD2D)[ $symbol ]($style)"
+
+symbol = "✓"
+not_executable_symbol = "🚫"
+not_found_symbol = "🔍"
+sigint_symbol = "🧱"
+signal_symbol = "⚡"
+recognize_signal_code = true
+map_symbol = true
+
+[cmd_duration]
+min_time = 500
+style = "bg:#49404f fg:#ffffff"
+format = "[](fg:#49404f)[ $duration ⌛]($style)"
+
+[battery]
+format = "[](fg:#FFCD58)[ $symbol$percentage ]($style)"
+
+[[battery.display]]
+threshold = 100
+style = "bg:#FFCD58 fg:#242424"
+
+[[battery.display]]
+threshold = 30
+style = "bg:#f36943 fg:#242424"
+
+[[battery.display]]
+threshold = 15
+style = "bg:#f1184c fg:#242424"
+discharging_symbol = "󰁺 "
+
+[time]
+disabled = false
+style = "bg:#003543 fg:#fff"
+format = "[](fg:#003543)[ $time ]($style)"
+time_format = "%H:%M"
+
+[character]
+success_symbol = "[❯](bold #FFD700)"
+error_symbol = "[❯](bold #f1184c)"
+vimcmd_symbol = "[❮](bold #FFD700)"
+
+[sudo]
+disabled = false
+symbol = "⚡ "
+style = "bold #FFD700"
+format = "[$symbol]($style)"
