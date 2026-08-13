@@ -8,9 +8,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     apple-silicon = {
-      # Pinned to last 6.19 kernel version - 7.x has WiFi issues
-      # To upgrade: change to "github:tpwrules/nixos-apple-silicon"
-      url = "github:tpwrules/nixos-apple-silicon/21b3780";
+      url = "github:nix-community/nixos-apple-silicon";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     llm-agents.url = "github:numtide/llm-agents.nix";
