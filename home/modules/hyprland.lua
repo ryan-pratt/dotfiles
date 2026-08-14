@@ -16,6 +16,7 @@ local lockScreen = "swaylock"
 hl.on("hyprland.start", function()
     hl.exec_cmd("waybar")
     hl.exec_cmd("swayidle")
+    hl.exec_cmd("/run/current-system/sw/libexec/polkit-kde-authentication-agent-1")
     hl.exec_cmd("[workspace 1 silent] " .. browser)
     hl.exec_cmd("[workspace 2 silent] " .. terminal)
 end)

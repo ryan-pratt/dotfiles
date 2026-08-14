@@ -31,16 +31,22 @@
 
   programs.firefox.enable = true;
 
+  services.gnome.gcr-ssh-agent.enable = false;
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.sddm.enableGnomeKeyring = true;
+
   environment.systemPackages = with pkgs; [
     brightnessctl
     ghostty
-    keepassxc
+    gnome-keyring
     playerctl
+    seahorse
 
     kdePackages.dolphin
     kdePackages.qtsvg
     kdePackages.kio
     kdePackages.kio-extras
     kdePackages.kio-fuse
+    kdePackages.polkit-kde-agent-1
   ];
 }

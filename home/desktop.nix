@@ -11,13 +11,9 @@
     inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".default
   ];
 
-  programs.keepassxc = {
+  services.gnome-keyring = {
     enable = true;
-    autostart = true;
-    settings = {
-      FdoSecrets.Enabled = true;
-      GUI.MinimizeOnStartup = true;
-    };
+    components = [ "pkcs11" "secrets" ];
   };
 
   programs.swaylock.enable = true;
