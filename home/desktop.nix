@@ -9,12 +9,15 @@
 
   home.packages = with pkgs; [
     inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".default
+    networkmanagerapplet
   ];
 
   services.gnome-keyring = {
     enable = true;
     components = [ "pkcs11" "secrets" ];
   };
+
+  services.network-manager-applet.enable = true;
 
   programs.swaylock.enable = true;
   services.swaync.enable = true;

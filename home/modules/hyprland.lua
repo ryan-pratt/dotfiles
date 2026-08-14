@@ -171,6 +171,13 @@ hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true 
 --------------------------------
 
 hl.window_rule({
+  match = { class = "nm-connection-editor" },
+  float = true,
+  size = { 600, 400 },
+  move = { "monitor_w - window_w - 20", "40" },
+})
+
+hl.window_rule({
     name = "suppress-maximize-events",
     match = { class = ".*" },
     suppress_event = "maximize",

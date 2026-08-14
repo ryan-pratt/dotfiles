@@ -88,7 +88,7 @@
           format-disconnected = "⚠";
           tooltip-format-wifi = "{essid} ({signalStrength}%)";
           tooltip-format-ethernet = "{ifname}";
-          on-click = "ghostty -e nmtui";
+          on-click = "nm-connection-editor";
         };
       };
     };
