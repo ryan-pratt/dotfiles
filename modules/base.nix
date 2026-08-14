@@ -43,6 +43,7 @@
       ripgrep
       starship
       tree-sitter
+      unp
       vim
       wget
     ])

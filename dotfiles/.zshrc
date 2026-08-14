@@ -75,3 +75,4 @@ function chpwd() {
 }
 
 eval "$(starship init zsh)"
+source <(fzf --zsh)
