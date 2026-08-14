@@ -25,10 +25,10 @@
   services.swayidle = {
     enable = true;
     timeouts = [
-      { timeout = 300; command = "${pkgs.swaylock}/bin/swaylock"; }
+      { timeout = 300; command = "${pkgs.swaylock}/bin/swaylock -fF"; }
     ];
     events = {
-      before-sleep = "${pkgs.swaylock}/bin/swaylock";
+      before-sleep = "${pkgs.swaylock}/bin/swaylock -fF";
     };
   };
 }
