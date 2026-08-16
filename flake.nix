@@ -64,7 +64,10 @@
               backupFileExtension = "bak";
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.rpratt = import ./home/desktop.nix;
+              users.rpratt = {
+                imports = [ ./home/desktop.nix ];
+                home.stateVersion = "25.11";
+              };
               extraSpecialArgs = {
                 inherit inputs;
               };
