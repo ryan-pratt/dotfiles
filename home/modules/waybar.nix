@@ -8,7 +8,7 @@
         position = "top";
         height = 28;
         margin-top = 4;
-        margin-bottom = 4;
+        margin-bottom = 3;
         margin-left = 8;
         margin-right = 8;
 
