@@ -37,6 +37,7 @@
 
   programs.git = {
     enable = true;
+    package = pkgs.git.override { withLibsecret = true; };
     lfs.enable = true;
 
     signing = {
@@ -52,6 +53,7 @@
       tag.gpgsign = true;
       merge.conflictstyle = "diff3";
       diff.colorMoved = "default";
+      credential.helper = "libsecret";
     };
   };
 
