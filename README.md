@@ -7,11 +7,14 @@ This repository contains my NixOS flake and my dotfiles.
 ```
 dotfiles/
 ├── flake.nix
-├── hosts/                             # Host configs
-│   └── hailstone/                     # M2 MacBook Air
+├── hosts/
+│   ├── hailstone/                     # M2 MacBook Air
+│   │   ├── default.nix
+│   │   ├── hardware-configuration.nix
+│   │   └── firmware/                  # Asahi firmware
+│   └── microburst/                    # Desktop
 │       ├── default.nix
-│       ├── hardware-configuration.nix
-│       └── firmware/                  # Asahi firmware
+│       └── hardware-configuration.nix
 ├── modules/                           # Reusable system modules
 │   ├── base.nix
 │   └── desktop.nix                    # Desktop environment (Hyprland, SDDM)
