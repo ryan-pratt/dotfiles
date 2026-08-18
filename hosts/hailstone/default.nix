@@ -30,6 +30,7 @@
   environment.systemPackages = with pkgs; [
     docker
     lazydocker
+    moonlight-qt
     openvpn
     samba
     update-resolv-conf
