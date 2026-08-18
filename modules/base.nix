@@ -40,6 +40,7 @@
       lazygit
       neovim
       nodejs_22
+      parted
       ripgrep
       starship
       tree-sitter
