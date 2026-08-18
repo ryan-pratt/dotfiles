@@ -11,7 +11,7 @@
   users.users.rpratt = {
     isNormalUser = true;
     shell = pkgs.zsh;
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" "input" "uinput" ];
   };
 
   programs.zsh.enable = true;
@@ -24,6 +24,21 @@
         Port 443
         User git
     '';
+  };
+
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;
+    openFirewall = true;
+    publish.userServices = true;
+  };
+
+  services.printing = {
+    enable = true;
+    drivers = with pkgs; [
+      cups-filters
+      cups-browsed
+    ];
   };
 
   environment.systemPackages =

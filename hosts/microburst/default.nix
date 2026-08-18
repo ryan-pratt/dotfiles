@@ -31,9 +31,20 @@
     options = [ "nofail" "rw" "uid=1000" "gid=100" ];
   };
 
+  # Game streaming
+  services.sunshine = {
+    enable = true;
+    autoStart = true;
+    capSysAdmin = true; # Direct GPU buffer access
+    openFirewall = true; # TCP 47984-48010 and UDP 47998-48000
+  };
+  hardware.uinput.enable = true; # Input from streaming client
+
   environment.systemPackages = with pkgs; [
     # host-specific packages
   ];
+
+  programs.steam.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
