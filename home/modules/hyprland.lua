@@ -6,7 +6,8 @@ local mod = "SUPER"
 local terminal = "ghostty"
 local fileManager = "dolphin"
 local browser = "zen-beta"
-local lockScreen = "swaylock"
+local lockScreen = "swaylock-wallpaper"
+local rotateWallpaper = "wallpaper-rotate"
 
 
 -------------------
@@ -14,6 +15,7 @@ local lockScreen = "swaylock"
 -------------------
 
 hl.on("hyprland.start", function()
+    hl.exec_cmd("awww-daemon")
     hl.exec_cmd("waybar")
     hl.exec_cmd("swayidle")
     hl.exec_cmd("/run/current-system/sw/libexec/polkit-kde-authentication-agent-1")
@@ -127,6 +129,7 @@ hl.config({
 hl.bind(mod .. " + C", hl.dsp.window.close())
 hl.bind(mod .. " + SHIFT + L", hl.dsp.exec_cmd(lockScreen))
 hl.bind(mod .. " + M", hl.dsp.exit())
+hl.bind(mod .. " + R", hl.dsp.exec_cmd(rotateWallpaper))
 
 -- Navigation
 hl.bind(mod .. " + H", hl.dsp.focus({ direction = "left" }))
