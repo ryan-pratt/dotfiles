@@ -9,6 +9,12 @@
 
   networking.hostName = "hailstone";
 
+  # TODO: integrate with DE
+  # - exec-once blueman-applet in hyprland
+  # - use blueman-manager GUI to manage connections
+  hardware.bluetooth.enable = true;
+  services.blueman.enable = true;
+
   boot.kernelParams = [ "appledrm.show_notch=1" ];
   boot.initrd.network.flushBeforeStage2 = true;
 
