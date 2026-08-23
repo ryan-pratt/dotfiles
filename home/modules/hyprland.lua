@@ -8,6 +8,7 @@ local fileManager = "dolphin"
 local browser = "zen-beta"
 local lockScreen = "swaylock-wallpaper"
 local rotateWallpaper = "wallpaper-rotate"
+local screenshot = "screenshot"
 
 
 -------------------
@@ -148,6 +149,11 @@ end
 hl.bind(mod .. " + Q", hl.dsp.exec_cmd(terminal))
 hl.bind(mod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mod .. " + Z", hl.dsp.exec_cmd(browser))
+
+-- Screenshots
+hl.bind(mod .. " + CTRL + SHIFT + 2", hl.dsp.exec_cmd(screenshot .. " screen"))
+hl.bind(mod .. " + CTRL + SHIFT + 3", hl.dsp.exec_cmd(screenshot .. " window"))
+hl.bind(mod .. " + CTRL + SHIFT + 4", hl.dsp.exec_cmd(screenshot .. " area"))
 
 -- Mouse
 hl.bind(mod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })

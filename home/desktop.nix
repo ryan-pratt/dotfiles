@@ -31,6 +31,33 @@ let
     random_image="''${images[RANDOM % ''${#images[@]}]}"
     ${pkgs.awww}/bin/awww img "$random_image" --transition-type fade --transition-duration 2
   '';
+
+  screenshot = pkgs.writeShellScriptBin "screenshot" ''
+    SCREENSHOT_DIR="$HOME/Pictures/Screenshots"
+    mkdir -p "$SCREENSHOT_DIR"
+    TIMESTAMP=$(date +"%Y-%m-%d-%H%M%S")
+    FILENAME="$SCREENSHOT_DIR/screenshot-$TIMESTAMP.png"
+
+    case "$1" in
+      "screen")
+        ${pkgs.grim}/bin/grim "$FILENAME"
+        ;;
+      "window")
+        ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp -o)" "$FILENAME"
+        ;;
+      "area")
+        ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp)" "$FILENAME"
+        ;;
+      *)
+        exit 1
+        ;;
+    esac
+
+    if [[ -f "$FILENAME" ]]; then
+      ${pkgs.libnotify}/bin/notify-send "Screenshot saved" "$FILENAME" -i "$FILENAME"
+      ${pkgs.wl-clipboard}/bin/wl-copy --type image/png < "$FILENAME"
+    fi
+  '';
 in
 
 {
@@ -43,9 +70,14 @@ in
   home.packages = with pkgs; [
     inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".default
     awww
+    grim
+    libnotify
     networkmanagerapplet
+    screenshot
+    slurp
     swaylock-wallpaper
     wallpaper-rotate
+    wl-clipboard
   ];
 
   services.gnome-keyring = {
