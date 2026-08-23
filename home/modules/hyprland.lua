@@ -18,7 +18,7 @@ local screenshot = "screenshot"
 hl.on("hyprland.start", function()
     hl.exec_cmd("awww-daemon")
     hl.exec_cmd("waybar")
-    hl.exec_cmd("swayidle")
+    hl.exec_cmd(os.getenv("HOME") .. "/.local/bin/start-swayidle")
     hl.exec_cmd("/run/current-system/sw/libexec/polkit-kde-authentication-agent-1")
     hl.exec_cmd("[workspace 1 silent] " .. browser)
     hl.exec_cmd("[workspace 2 silent] " .. terminal)

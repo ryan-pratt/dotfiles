@@ -75,6 +75,7 @@ in
     networkmanagerapplet
     screenshot
     slurp
+    swayidle
     swaylock-wallpaper
     wallpaper-rotate
     wl-clipboard
@@ -126,15 +127,13 @@ in
 
   services.swaync.enable = true;
 
-  services.swayidle = {
-    enable = true;
-    timeouts = [
-      { timeout = 300; command = "${swaylock-wallpaper}/bin/swaylock-wallpaper"; }
-    ];
-    events = {
-      before-sleep = "${swaylock-wallpaper}/bin/swaylock-wallpaper";
-    };
-  };
+  # This gives swayidle what it needs to use wallpaper on timeout (as opposed to mod+shift+L)
+  home.file.".local/bin/start-swayidle".source = pkgs.writeShellScript "start-swayidle" ''
+    ${pkgs.swayidle}/bin/swayidle -w \
+      timeout 600 '${swaylock-wallpaper}/bin/swaylock-wallpaper' \
+      before-sleep '${swaylock-wallpaper}/bin/swaylock-wallpaper'
+  '';
+  home.file.".local/bin/start-swayidle".executable = true;
 
   home.file."wallpapers/.keep".text = "";
 }
