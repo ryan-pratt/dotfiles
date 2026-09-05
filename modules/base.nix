@@ -58,6 +58,7 @@
       parted
       ripgrep
       starship
+      tmux
       tree-sitter
       unp
       vim
