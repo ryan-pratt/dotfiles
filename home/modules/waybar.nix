@@ -51,7 +51,7 @@
           format = "{:%I:%M %p}";
           format-alt = "{:%a %b %d %R}";
           tooltip-format = "<tt><small>{calendar}</small></tt>";
-	  calendar = {
+          calendar = {
             mode = "month";
             mode-mon-col = 3;
             weeks-pos = "left";
@@ -64,7 +64,7 @@
               weekdays = "<span color='#ffcc66'><b>{}</b></span>";
               today =    "<span color='#ff6699'><b><u>{}</u></b></span>";
             };
-	  };
+          };
         };
         cpu = {
           format = "{usage}% ";
