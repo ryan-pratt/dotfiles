@@ -58,6 +58,30 @@ let
       ${pkgs.wl-clipboard}/bin/wl-copy --type image/png < "$FILENAME"
     fi
   '';
+
+  vpn-status-icon = pkgs.writeShellScriptBin "vpn-status-icon" ''
+    output=$(${pkgs.proton-vpn-cli}/bin/protonvpn status 2>/dev/null)
+    status=$(echo "$output" | grep "^Status:" | awk '{print $2}')
+    if [[ "$status" == "Connected" ]]; then
+      icon="󰖂"
+      server=$(echo "$output" | grep "^Server:" | awk '{$1=""; print $0}' | xargs)
+      load=$(echo "$output" | grep "^Load:" | awk '{$1=""; print $0}' | xargs)
+      tooltip="$server ($load)"
+    else
+      icon="󰦜"
+      tooltip="Disconnected"
+    fi
+    echo "{\"text\": \"$icon\", \"tooltip\": \"$tooltip\"}"
+  '';
+
+  vpn-toggle = pkgs.writeShellScriptBin "vpn-toggle" ''
+    status=$(${pkgs.proton-vpn-cli}/bin/protonvpn status 2>/dev/null || echo "Disconnected")
+    if echo "$status" | grep -qi 'Status:.*Disconnected'; then
+      ${pkgs.proton-vpn-cli}/bin/protonvpn connect
+    else
+      ${pkgs.proton-vpn-cli}/bin/protonvpn disconnect
+    fi
+  '';
 in
 
 {
@@ -77,6 +101,8 @@ in
     slurp
     swayidle
     swaylock-wallpaper
+    vpn-status-icon
+    vpn-toggle
     wallpaper-rotate
     wl-clipboard
   ];

@@ -18,6 +18,7 @@
 
         modules-right = [
           "pulseaudio"
+          "custom/vpn"
           "network"
           "cpu"
           "memory"
@@ -89,6 +90,13 @@
           tooltip-format-wifi = "{essid} ({signalStrength}%)";
           tooltip-format-ethernet = "{ifname}";
           on-click = "nm-connection-editor";
+        };
+        "custom/vpn" = {
+          format = "{}";
+          exec = "vpn-status-icon";
+          return-type = "json";
+          interval = 5;
+          on-click = "vpn-toggle";
         };
       };
     };

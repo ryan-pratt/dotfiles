@@ -27,6 +27,7 @@
     ghostty
     gnome-keyring
     playerctl
+    proton-vpn
     seahorse
 
     kdePackages.dolphin

@@ -8,10 +8,17 @@
 
   i18n.defaultLocale = "en_US.UTF-8";
 
+  networking = {
+    firewall.checkReversePath = false;
+    networkmanager.plugins = with pkgs; [
+      networkmanager-openvpn
+    ];
+  };
+
   users.users.rpratt = {
     isNormalUser = true;
     shell = pkgs.zsh;
-    extraGroups = [ "wheel" "input" "uinput" ];
+    extraGroups = [ "input" "networkmanager" "uinput" "wheel" ];
   };
 
   programs.zsh.enable = true;
@@ -56,6 +63,7 @@
       neovim
       nodejs_22
       parted
+      proton-vpn-cli
       ripgrep
       starship
       tmux
