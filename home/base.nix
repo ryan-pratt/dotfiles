@@ -54,6 +54,8 @@
       merge.conflictstyle = "diff3";
       diff.colorMoved = "default";
       credential.helper = "libsecret";
+      init.defaultBranch = "main";
+      advice.defaultBranchName = false;
     };
   };
 
