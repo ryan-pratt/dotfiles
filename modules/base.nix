@@ -56,6 +56,7 @@
       eza
       fzf
       gcc
+      gh
       git
       git-lfs
       htop
