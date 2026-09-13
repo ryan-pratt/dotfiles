@@ -1,6 +1,8 @@
 { config, lib, pkgs, ... }:
 
 {
+  nixpkgs.config.allowUnfree = true; # obsidian
+
   programs.hyprland = {
     enable = true;
     withUWSM = true;

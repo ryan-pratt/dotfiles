@@ -97,6 +97,7 @@ in
     grim
     libnotify
     networkmanagerapplet
+    obsidian
     screenshot
     slurp
     swayidle
