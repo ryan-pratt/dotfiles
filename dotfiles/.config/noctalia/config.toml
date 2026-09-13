@@ -1,0 +1,95 @@
+[bar.default]
+background_opacity = 0.5
+center = []
+concave_edge_corners = false
+end = [
+    "tray",
+    "clipboard",
+    "network",
+    "bluetooth",
+    "volume",
+    "brightness",
+    "battery",
+    "control-center",
+    "notifications",
+    "clock"
+]
+margin_ends = 0
+radius = 0
+shadow = false
+start = [ "session", "wallpaper", "workspaces" ]
+thickness = 35
+
+[desktop_widgets]
+enabled = false
+
+[lockscreen_widgets]
+enabled = false
+schema_version = 2
+widget_order = [ "lockscreen-login-box@eDP-1" ]
+
+    [lockscreen_widgets.grid]
+    cell_size = 16
+    major_interval = 4
+    visible = true
+
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
+    box_height = 196.0
+    box_width = 810.0
+    cx = 800.0
+    cy = 858.0
+    output = "eDP-1"
+    placement_height = 1040.0
+    placement_width = 1600.0
+    rotation = 0.0
+    type = "login_box"
+
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+        background_color = "surface_variant"
+        background_opacity = 0.88
+        background_radius = 12.0
+        center_password_text = false
+        input_opacity = 1.0
+        input_radius = 6.0
+        layout = "regular"
+        show_caps_lock = true
+        show_keyboard_layout = true
+        show_login_button = true
+        show_media = true
+        show_session_buttons = true
+        show_unlock_hint = true
+        show_weather = true
+
+[shell]
+button_borders = false
+card_borders = false
+input_borders = false
+popup_borders = false
+
+    [shell.animation]
+    enabled = false
+
+    [shell.panel]
+    open_near_click_control_center = true
+
+[theme]
+source = "wallpaper"
+
+    [theme.templates]
+    builtin_ids = [ "btop", "ghostty", "hyprland", "starship" ]
+
+[wallpaper]
+directory = "/home/rpratt/wallpapers"
+transition = [ "fade" ]
+
+    [wallpaper.automation]
+    enabled = true
+
+[weather]
+enabled = false
+
+[widget.control-center]
+glyph = "settings"
+
+[widget.tray]
+enabled = false

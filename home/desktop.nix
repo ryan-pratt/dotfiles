@@ -93,6 +93,7 @@ in
 
   home.packages = with pkgs; [
     inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".default
+    inputs.noctalia.packages.${pkgs.system}.default
     awww
     grim
     libnotify

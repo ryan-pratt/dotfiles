@@ -9,6 +9,7 @@ local browser = "zen-beta"
 local lockScreen = "swaylock-wallpaper"
 local rotateWallpaper = "wallpaper-rotate"
 local screenshot = "screenshot"
+local launcher = "noctalia msg panel-toggle launcher"
 
 
 -------------------
@@ -16,6 +17,7 @@ local screenshot = "screenshot"
 -------------------
 
 hl.on("hyprland.start", function()
+    hl.exec_cmd("noctalia")
     hl.exec_cmd("awww-daemon")
     hl.exec_cmd("waybar")
     hl.exec_cmd(os.getenv("HOME") .. "/.local/bin/start-swayidle")
@@ -147,6 +149,7 @@ for i = 1, 10 do
 end
 
 -- Apps
+hl.bind(mod .. " + SPACE", hl.dsp.exec_cmd(launcher))
 hl.bind(mod .. " + Q", hl.dsp.exec_cmd(terminal))
 hl.bind(mod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mod .. " + Z", hl.dsp.exec_cmd(browser))
