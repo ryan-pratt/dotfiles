@@ -1,10 +1,13 @@
 [bar.default]
-background_opacity = 0.5
+background_opacity = 0.9
+start = [
+  "session",
+  "clipboard",
+  "workspaces"
+]
 center = []
-concave_edge_corners = false
 end = [
     "tray",
-    "clipboard",
     "network",
     "bluetooth",
     "volume",
@@ -17,7 +20,7 @@ end = [
 margin_ends = 0
 radius = 0
 shadow = false
-start = [ "session", "wallpaper", "workspaces" ]
+concave_edge_corners = false
 thickness = 35
 
 [desktop_widgets]
