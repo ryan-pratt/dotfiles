@@ -82,6 +82,14 @@
       pi
     ]);
 
+  # fix neovim lsp in dev shell
+  programs.nix-ld.enable = true;
+
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
+
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   nix.gc = {
