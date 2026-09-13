@@ -6,9 +6,8 @@ local mod = "SUPER"
 local terminal = "ghostty"
 local fileManager = "dolphin"
 local browser = "zen-beta"
-local lockScreen = "swaylock-wallpaper"
-local rotateWallpaper = "wallpaper-rotate"
-local screenshot = "screenshot"
+local lockScreen = "noctalia msg session lock"
+local screenshot = "noctalia msg screenshot-" -- "screenshot-region" or "screenshot-fullscreen"
 local launcher = "noctalia msg panel-toggle launcher"
 
 
@@ -18,9 +17,6 @@ local launcher = "noctalia msg panel-toggle launcher"
 
 hl.on("hyprland.start", function()
     hl.exec_cmd("noctalia")
-    hl.exec_cmd("awww-daemon")
-    hl.exec_cmd("waybar")
-    hl.exec_cmd(os.getenv("HOME") .. "/.local/bin/start-swayidle")
     hl.exec_cmd("/run/current-system/sw/libexec/polkit-kde-authentication-agent-1")
     hl.exec_cmd("systemctl --user restart wireplumber")
     hl.exec_cmd("[workspace 1 silent] " .. browser)
@@ -133,7 +129,6 @@ hl.config({
 hl.bind(mod .. " + C", hl.dsp.window.close())
 hl.bind(mod .. " + SHIFT + L", hl.dsp.exec_cmd(lockScreen))
 hl.bind(mod .. " + M", hl.dsp.exit())
-hl.bind(mod .. " + R", hl.dsp.exec_cmd(rotateWallpaper))
 
 -- Navigation
 hl.bind(mod .. " + H", hl.dsp.focus({ direction = "left" }))
@@ -155,9 +150,8 @@ hl.bind(mod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mod .. " + Z", hl.dsp.exec_cmd(browser))
 
 -- Screenshots
-hl.bind(mod .. " + CTRL + SHIFT + 2", hl.dsp.exec_cmd(screenshot .. " screen"))
-hl.bind(mod .. " + CTRL + SHIFT + 3", hl.dsp.exec_cmd(screenshot .. " window"))
-hl.bind(mod .. " + CTRL + SHIFT + 4", hl.dsp.exec_cmd(screenshot .. " area"))
+hl.bind(mod .. " + CTRL + SHIFT + 2", hl.dsp.exec_cmd(screenshot .. "fullscreen"))
+hl.bind(mod .. " + CTRL + SHIFT + 4", hl.dsp.exec_cmd(screenshot .. "region"))
 
 -- Mouse
 hl.bind(mod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
