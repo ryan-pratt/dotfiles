@@ -89,6 +89,29 @@
           }
         ];
       };
+
+      inversion = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./hosts/inversion
+          home-manager.nixosModules.home-manager
+          {
+            home-manager = {
+              backupFileExtension = "bak";
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.rpratt = {
+                imports = [ ./home/desktop.nix ];
+                home.stateVersion = "26.05";
+              };
+              extraSpecialArgs = {
+                inherit inputs;
+              };
+            };
+          }
+        ];
+      };
     };
   };
 }
