@@ -27,6 +27,10 @@
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
+  services.fprintd.enable = true;
+
+  services.logind.settings.Login.HandlePowerKey = "lock";
+
   environment.systemPackages = with pkgs; [
     moonlight-qt
     openvpn

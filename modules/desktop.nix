@@ -26,7 +26,10 @@
 
   services.gnome.gcr-ssh-agent.enable = false;
   services.gnome.gnome-keyring.enable = true;
-  security.pam.services.greetd.enableGnomeKeyring = true;
+  security.pam.services = {
+    greetd.fprintAuth = false; # can't do fprint and keyring :/
+    greetd.enableGnomeKeyring = true;
+  };
 
   environment.systemPackages = with pkgs; [
     brightnessctl
