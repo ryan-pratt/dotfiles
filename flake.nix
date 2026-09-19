@@ -95,8 +95,28 @@
         specialArgs = { inherit inputs; };
         modules = [
           ./hosts/inversion
+          inputs.xremap-flake.nixosModules.default
           home-manager.nixosModules.home-manager
           {
+            services.xremap = {
+              enable = true;
+              config.modmap = [
+                {
+                  name = "Better ctrl";
+                  remap = { "CapsLock" = "Ctrl_L"; };
+                }
+                {
+                  name = "Better caps";
+                  remap = {
+                    Shift_L = {
+                      held = "Shift_L";
+                      alone = "CapsLock"; 
+                      alone_timeout_millis = 200;
+                    };
+                  };
+                }
+              ];
+            };
             home-manager = {
               backupFileExtension = "bak";
               useGlobalPkgs = true;
