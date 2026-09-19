@@ -78,6 +78,9 @@ popup_borders = false
     [shell.animation]
     enabled = false
 
+    [shell.greeter_sync]
+    auto_sync = true
+
     [shell.panel]
     open_near_click_control_center = true
 

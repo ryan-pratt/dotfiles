@@ -1,16 +1,20 @@
-{ config, lib, pkgs, ... }:
+{ config, inputs, lib, pkgs, ... }:
 
 {
   nixpkgs.config.allowUnfree = true; # obsidian
+
+  imports = [
+    inputs.noctalia-greeter.nixosModules.default
+  ];
 
   programs.hyprland = {
     enable = true;
     withUWSM = true;
   };
 
-  services.displayManager.sddm = {
+  services.displayManager.noctalia-greeter = {
     enable = true;
-    wayland.enable = true;
+    passwordless-sync-users = [ "rpratt" ];
   };
 
   services.dbus = {
@@ -22,7 +26,7 @@
 
   services.gnome.gcr-ssh-agent.enable = false;
   services.gnome.gnome-keyring.enable = true;
-  security.pam.services.sddm.enableGnomeKeyring = true;
+  security.pam.services.greetd.enableGnomeKeyring = true;
 
   environment.systemPackages = with pkgs; [
     brightnessctl

@@ -16,7 +16,7 @@ dotfiles/
 │       └── hardware-configuration.nix
 ├── modules/                           # Reusable system modules
 │   ├── base.nix
-│   └── desktop.nix                    # Desktop environment (Hyprland, SDDM)
+│   └── desktop.nix                    # Desktop environment (Hyprland, Noctalia)
 ├── home/                              # Home-Manager configs
 │   ├── base.nix
 │   ├── desktop.nix
