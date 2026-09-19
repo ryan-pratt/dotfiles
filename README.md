@@ -8,10 +8,9 @@ This repository contains my NixOS flake and my dotfiles.
 dotfiles/
 ├── flake.nix
 ├── hosts/
-│   ├── hailstone/                     # M2 MacBook Air
+│   ├── inversion/                     # ThinkPad
 │   │   ├── default.nix
-│   │   ├── hardware-configuration.nix
-│   │   └── firmware/                  # Asahi firmware
+│   │   └── hardware-configuration.nix
 │   └── microburst/                    # Desktop
 │       ├── default.nix
 │       └── hardware-configuration.nix
@@ -22,8 +21,7 @@ dotfiles/
 │   ├── base.nix
 │   ├── desktop.nix
 │   └── modules/
-│       ├── hyprland.nix
-│       └── waybar.nix
+│       └── hyprland.nix
 └── dotfiles/
 ```
 

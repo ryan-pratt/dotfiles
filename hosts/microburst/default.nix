@@ -11,9 +11,6 @@
 
   networking.hostName = "microburst";
 
-  # TODO: integrate with DE
-  # - exec-once blueman-applet in hyprland
-  # - use blueman-manager GUI to manage connections
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 

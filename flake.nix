@@ -7,10 +7,6 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    apple-silicon = {
-      url = "github:nix-community/nixos-apple-silicon";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
     llm-agents.url = "github:numtide/llm-agents.nix";
     noctalia.url = "github:noctalia-dev/noctalia-shell";
     xremap-flake.url = "github:xremap/nix-flake";
@@ -23,50 +19,6 @@
 
   outputs = inputs@{ self, nixpkgs, home-manager, ... }: {
     nixosConfigurations = {
-      hailstone = nixpkgs.lib.nixosSystem {
-        system = "aarch64-linux";
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./hosts/hailstone
-          inputs.apple-silicon.nixosModules.apple-silicon-support
-          inputs.xremap-flake.nixosModules.default
-          home-manager.nixosModules.home-manager
-          {
-            services.xremap = {
-              enable = true;
-              config.modmap = [
-                {
-                  name = "Better ctrl";
-                  remap = { "CapsLock" = "Ctrl_L"; };
-                }
-                {
-                  name = "Better caps";
-                  remap = {
-                    Shift_L = {
-                      held = "Shift_L";
-                      alone = "CapsLock"; 
-                      alone_timeout_millis = 200;
-                    };
-                  };
-                }
-              ];
-            };
-            home-manager = {
-              backupFileExtension = "bak";
-              useGlobalPkgs = true;
-              useUserPackages = true;
-              users.rpratt = {
-                imports = [ ./home/desktop.nix ];
-                home.stateVersion = "25.11";
-              };
-              extraSpecialArgs = {
-                inherit inputs;
-              };
-            };
-          }
-        ];
-      };
-
       microburst = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         specialArgs = { inherit inputs; };
