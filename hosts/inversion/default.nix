@@ -27,6 +27,11 @@
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
+  # allow non-root to toggle mic mute LED
+  services.udev.extraRules = ''
+    ACTION=="add", SUBSYSTEM=="leds", KERNEL=="platform::micmute", RUN+="/bin/sh -c 'chgrp users /sys/class/leds/platform::micmute/brightness && chmod g+w /sys/class/leds/platform::micmute/brightness'"
+  '';
+
   services.fprintd.enable = true;
 
   services.logind.settings.Login.HandlePowerKey = "lock";
