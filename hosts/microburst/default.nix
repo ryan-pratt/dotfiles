@@ -11,6 +11,9 @@
 
   networking.hostName = "microburst";
 
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = lib.mkDefault false;
+
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 

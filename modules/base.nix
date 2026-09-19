@@ -1,9 +1,6 @@
 { config, lib, pkgs, inputs, ... }:
 
 {
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = lib.mkDefault false;
-
   time.timeZone = "America/Denver";
 
   i18n.defaultLocale = "en_US.UTF-8";

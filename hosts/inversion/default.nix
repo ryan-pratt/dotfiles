@@ -9,7 +9,10 @@
 
   networking.hostName = "inversion";
 
-  boot.loader.systemd-boot.enable = true;
+  boot.loader.limine = {
+    enable = true;
+    secureBoot.enable = true;
+  };
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.initrd.systemd = {
@@ -28,6 +31,7 @@
     moonlight-qt
     openvpn
     samba
+    sbctl
     update-resolv-conf
   ];
 
