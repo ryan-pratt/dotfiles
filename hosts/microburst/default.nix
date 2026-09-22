@@ -28,7 +28,7 @@
   fileSystems."/mnt/storage" = {
     device = "/dev/disk/by-uuid/cd9e2a2a-e4a5-4aff-815c-bd268490afa3";
     fsType = "btrfs";
-    options = [ "nofail" "rw" "uid=1000" "gid=100" ];
+    options = [ "nofail" ];
   };
 
   # Game streaming

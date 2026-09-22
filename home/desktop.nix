@@ -7,11 +7,9 @@
   ];
 
   home.packages = with pkgs; [
-    inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".default
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
-    libnotify
+    inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".default
     obsidian
-    wl-clipboard
   ];
 
   services.gnome-keyring = {

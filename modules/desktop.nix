@@ -32,12 +32,15 @@
   };
 
   environment.systemPackages = with pkgs; [
+    bibata-cursors
     brightnessctl
     ghostty
     gnome-keyring
+    libnotify
     playerctl
     proton-vpn
     seahorse
+    wl-clipboard
 
     kdePackages.dolphin
     kdePackages.qtsvg

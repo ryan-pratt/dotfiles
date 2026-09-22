@@ -83,6 +83,9 @@ hl.layer_rule({
   xray = true,
 })
 
+hl.env("XCURSOR_THEME", "Bibata-Modern-Classic")
+hl.env("XCURSOR_SIZE", "20")
+
 
 ---------------
 ---- INPUT ----
@@ -100,6 +103,17 @@ hl.config({
             scroll_factor = 0.4,
         },
     },
+})
+
+hl.device({
+    name = "tpps/2-synaptics-trackpoint",
+    sensitivity = -0.5,
+})
+
+hl.device({
+    name = "logitech-mx-master-3s",
+    sensitivity = -0.5,
+    accel_profile = "flat",
 })
 
 -- Gestures
@@ -120,6 +134,13 @@ hl.monitor({
     position = "auto",
     scale = 1.2,
     bitdepth = 10,
+})
+
+hl.monitor({
+    output = "DP-1",
+    mode = "preferred",
+    scale = 1.2,
+    position = "auto-left",
 })
 
 
@@ -177,8 +198,8 @@ hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_
 hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"), { locked = true, repeating = true })
 hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"), { locked = true, repeating = true })
 hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle && (wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep -q MUTED && echo 0 > /sys/class/leds/platform::micmute/brightness || echo 1 > /sys/class/leds/platform::micmute/brightness)"), { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl -n2 set 5%+"), { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -n2 set 5%-"), { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl set 5%+"), { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl set 5%-"), { locked = true, repeating = true })
 hl.bind(mod .. " + XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl --device=tpacpi::kbd_backlight -e4 set 15%+"), { locked = true, repeating = true })
 hl.bind(mod .. " + XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl --device=tpacpi::kbd_backlight -e4 set 15%-"), { locked = true, repeating = true })
 hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
