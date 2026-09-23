@@ -70,6 +70,7 @@ hl.config({
     },
 
     misc = {
+        initial_workspace_tracking = 1,
         force_default_wallpaper = -1,
         disable_hyprland_logo = false,
         middle_click_paste = false,

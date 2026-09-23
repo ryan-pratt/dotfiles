@@ -64,6 +64,7 @@
       lazygit
       neovim
       nodejs_22
+      openssl
       parted
       proton-vpn-cli
       ripgrep
@@ -73,11 +74,17 @@
       unp
       vim
       wget
+      yubikey-manager
     ])
     ++
     (with inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}; [
       pi
     ]);
+
+  programs.localsend = {
+    enable = true;
+    openFirewall = true;
+  };
 
   # fix neovim lsp in dev shell
   programs.nix-ld.enable = true;

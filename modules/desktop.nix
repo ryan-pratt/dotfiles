@@ -37,10 +37,12 @@
     ghostty
     gnome-keyring
     libnotify
+    mpv
     playerctl
     proton-vpn
     protonmail-bridge
     seahorse
+    swayimg
     wl-clipboard
 
     kdePackages.dolphin
