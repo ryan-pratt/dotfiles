@@ -11,6 +11,8 @@
     inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
     inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".default
     obsidian
+    telegram-desktop
+    thunderbird
   ];
 
   services.gnome-keyring = {

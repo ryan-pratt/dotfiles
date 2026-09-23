@@ -6,6 +6,7 @@ local mod = "SUPER"
 local terminal = "ghostty"
 local fileManager = "dolphin"
 local browser = "zen-beta"
+local email = "thunderbird"
 local lockScreen = "noctalia msg session lock"
 local screenshot = "noctalia msg screenshot-" -- "screenshot-region" or "screenshot-fullscreen"
 local launcher = "noctalia msg panel-toggle launcher"
@@ -19,8 +20,11 @@ hl.on("hyprland.start", function()
     hl.exec_cmd("noctalia")
     hl.exec_cmd("/run/current-system/sw/libexec/polkit-kde-authentication-agent-1")
     hl.exec_cmd("systemctl --user restart wireplumber")
-    hl.exec_cmd("[workspace 1 silent] " .. browser)
-    hl.exec_cmd("[workspace 2 silent] " .. terminal)
+    hl.exec_cmd(browser, { workspace = "1 silent" })
+    hl.exec_cmd(terminal, { workspace = "2 silent" })
+    hl.exec_cmd("obsidian", { workspace = "3 silent" })
+    hl.exec_cmd(email, { workspace = "4 silent" })
+    hl.exec_cmd("Telegram", { workspace = "4 silent" })
     hl.exec_cmd("sleep 1 && wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 1 && echo 0 > /sys/class/leds/platform::micmute/brightness")
 end)
 
