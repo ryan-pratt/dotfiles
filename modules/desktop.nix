@@ -3,18 +3,20 @@
 {
   nixpkgs.config.allowUnfree = true; # obsidian
 
-  imports = [
-    inputs.noctalia-greeter.nixosModules.default
-  ];
-
   programs.hyprland = {
     enable = true;
     withUWSM = true;
   };
 
-  services.displayManager.noctalia-greeter = {
+  services.displayManager.enable = true;
+  services.greetd = {
     enable = true;
-    passwordless-sync-users = [ "rpratt" ];
+    settings = {
+      default_session = {
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --remember-user-session --asterisks --sessions ${config.services.displayManager.sessionData.desktops}/share/wayland-sessions";
+        user = "greeter";
+      };
+    };
   };
 
   services.dbus = {
@@ -27,7 +29,7 @@
   services.gnome.gcr-ssh-agent.enable = false;
   services.gnome.gnome-keyring.enable = true;
   security.pam.services = {
-    greetd.fprintAuth = false; # can't do fprint and keyring :/
+    greetd.fprintAuth = true; # if true, gnome-keyring must have blank password
     greetd.enableGnomeKeyring = true;
   };
 
