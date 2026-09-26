@@ -42,7 +42,6 @@
     mpv
     playerctl
     proton-vpn
-    protonmail-bridge
     seahorse
     swayimg
     wl-clipboard
@@ -54,17 +53,4 @@
     kdePackages.kio-fuse
     kdePackages.polkit-kde-agent-1
   ];
-
-  systemd.user.services.protonmail-bridge = {
-    description = "Proton Mail Bridge";
-    wants = [ "network-online.target" "gnome-keyring-daemon.service" ];
-    after = [ "network-online.target" "gnome-keyring-daemon.service" ];
-    wantedBy = [ "default.target" ];
-
-    serviceConfig = {
-      ExecStart = "${pkgs.protonmail-bridge}/bin/protonmail-bridge --noninteractive";
-      Restart = "on-failure";
-      RestartSec = "10s";
-    };
-  };
 }
