@@ -23,7 +23,7 @@ hl.on("hyprland.start", function()
     hl.exec_cmd(terminal, { workspace = "2 silent" })
     hl.exec_cmd("obsidian", { workspace = "3 silent" })
     hl.exec_cmd("Telegram", { workspace = "4 silent" })
-    hl.exec_cmd("sleep 1 && wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 1 && echo 0 > /sys/class/leds/platform::micmute/brightness")
+    hl.exec_cmd("sleep 2 && wpctl set-mute @DEFAULT_AUDIO_SOURCE@ 1 && echo 0 > /sys/class/leds/platform::micmute/brightness")
 end)
 
 
