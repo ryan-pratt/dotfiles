@@ -49,16 +49,22 @@
   };
 
   environment.systemPackages = with pkgs; [
+    inputs.helium.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.noctalia.packages.${pkgs.stdenv.hostPlatform.system}.default
+    inputs.zen-browser.packages."${pkgs.stdenv.hostPlatform.system}".default
+
     bibata-cursors
     brightnessctl
     ghostty
     gnome-keyring
     libnotify
     mpv
+    obsidian
     playerctl
     proton-vpn
     seahorse
     swayimg
+    telegram-desktop
     wl-clipboard
 
     kdePackages.dolphin
@@ -68,4 +74,15 @@
     kdePackages.kio-fuse
     kdePackages.polkit-kde-agent-1
   ];
+
+  home-manager.users.rpratt = {
+    imports = [ ./features/hyprland.nix ];
+
+    services.gnome-keyring = {
+      enable = true;
+      components = [ "pkcs11" "secrets" ];
+    };
+
+    home.file."wallpapers/.keep".text = "";
+  };
 }

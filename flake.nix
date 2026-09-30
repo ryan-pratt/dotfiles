@@ -34,7 +34,7 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               users.rpratt = {
-                imports = [ ./home/desktop.nix ];
+                imports = [ ./home/base.nix ];
                 home.stateVersion = "26.05";
               };
               extraSpecialArgs = {
@@ -67,7 +67,7 @@
               useGlobalPkgs = true;
               useUserPackages = true;
               users.rpratt = {
-                imports = [ ./home/desktop.nix ];
+                imports = [ ./home/base.nix ];
                 home.stateVersion = "26.05";
               };
               extraSpecialArgs = {
