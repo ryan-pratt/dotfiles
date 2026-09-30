@@ -60,16 +60,6 @@
                   name = "Better ctrl";
                   remap = { "CapsLock" = "Ctrl_L"; };
                 }
-                {
-                  name = "Better caps";
-                  remap = {
-                    Shift_L = {
-                      held = "Shift_L";
-                      alone = "CapsLock"; 
-                      alone_timeout_millis = 200;
-                    };
-                  };
-                }
               ];
             };
             home-manager = {

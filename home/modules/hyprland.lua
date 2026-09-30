@@ -96,6 +96,7 @@ hl.env("XCURSOR_SIZE", "20")
 
 hl.config({
     input = {
+        kb_options = "shift:both_capslock",
         kb_layout = "us",
         repeat_delay = 250,
         follow_mouse = 1,
