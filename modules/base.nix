@@ -64,6 +64,7 @@
       lazygit
       neovim
       nodejs_22
+      opencode
       openssl
       parted
       proton-vpn-cli
@@ -75,10 +76,6 @@
       vim
       wget
       yubikey-manager
-    ])
-    ++
-    (with inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}; [
-      pi
     ]);
 
   programs.localsend = {

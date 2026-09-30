@@ -11,7 +11,6 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    llm-agents.url = "github:numtide/llm-agents.nix";
     noctalia.url = "github:noctalia-dev/noctalia-shell";
     xremap-flake.url = "github:xremap/nix-flake";
     zen-browser = {
