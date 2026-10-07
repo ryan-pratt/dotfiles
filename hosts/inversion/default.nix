@@ -22,6 +22,13 @@
 
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
+  swapDevices = [
+    {
+      device = "/var/lib/swapfile";
+      size = 16 * 1024;
+    }
+  ];
+
   networking.networkmanager.enable = true;
 
   hardware.bluetooth.enable = true;
