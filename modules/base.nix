@@ -19,11 +19,17 @@
     shell = pkgs.zsh;
     extraGroups = [
       "dialout"
+      "docker"
       "input"
       "networkmanager"
       "uinput"
       "wheel"
     ];
+  };
+
+  virtualisation.docker = {
+    enable = true;
+    storageDriver = "btrfs";
   };
 
   programs.zsh.enable = true;
