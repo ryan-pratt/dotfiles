@@ -27,9 +27,11 @@
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
-  # allow non-root to toggle mic mute LED
+  # 1: allow non-root to toggle mic mute LED
+  # 2: grant serial access for qFlipper
   services.udev.extraRules = ''
     ACTION=="add", SUBSYSTEM=="leds", KERNEL=="platform::micmute", RUN+="/bin/sh -c 'chgrp users /sys/class/leds/platform::micmute/brightness && chmod g+w /sys/class/leds/platform::micmute/brightness'"
+    SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="0483", ATTR{idProduct}=="5740", GROUP="dialout", MODE="0660"
   '';
 
   services.fprintd = {

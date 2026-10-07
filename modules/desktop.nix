@@ -40,6 +40,7 @@
     obsidian
     playerctl
     proton-vpn
+    qFlipper
     seahorse
     swayimg
     telegram-desktop

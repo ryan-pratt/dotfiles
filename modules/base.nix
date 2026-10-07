@@ -17,7 +17,13 @@
   users.users.rpratt = {
     isNormalUser = true;
     shell = pkgs.zsh;
-    extraGroups = [ "input" "networkmanager" "uinput" "wheel" ];
+    extraGroups = [
+      "dialout"
+      "input"
+      "networkmanager"
+      "uinput"
+      "wheel"
+    ];
   };
 
   programs.zsh.enable = true;
