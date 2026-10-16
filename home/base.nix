@@ -73,5 +73,8 @@
   fonts.fontconfig.enable = true;
   xdg.autostart.enable = true;
 
+  home.sessionVariables.NIX_XDG_DESKTOP_PORTAL_DIR = pkgs.lib.mkForce "/run/current-system/sw/share/xdg-desktop-portal/portals";
+  systemd.user.sessionVariables.NIX_XDG_DESKTOP_PORTAL_DIR = pkgs.lib.mkForce "/run/current-system/sw/share/xdg-desktop-portal/portals";
+
   programs.home-manager.enable = true;
 }
