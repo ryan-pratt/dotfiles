@@ -83,7 +83,6 @@ hl.layer_rule({
   ignore_alpha = 0.0,
   blur = true,
   blur_popups = true,
-  xray = true,
 })
 
 hl.env("XCURSOR_THEME", "Bibata-Modern-Classic")
