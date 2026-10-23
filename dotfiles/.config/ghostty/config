@@ -2,6 +2,7 @@ term = xterm-256color
 macos-icon = retro
 window-decoration = none
 copy-on-select = clipboard
+mouse-scroll-multiplier = precision:1,discrete:0.75
 
 shell-integration-features = no-cursor
 mouse-hide-while-typing = true

@@ -115,7 +115,7 @@ hl.device({
 
 hl.device({
     name = "logitech-mx-master-3s",
-    sensitivity = -0.5,
+    sensitivity = -0.3,
     accel_profile = "flat",
 })
 
