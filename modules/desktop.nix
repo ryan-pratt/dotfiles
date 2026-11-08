@@ -39,7 +39,9 @@
 
     bibata-cursors
     brightnessctl
+    chromium
     ghostty
+    gimp
     gnome-keyring
     libnotify
     mpv
