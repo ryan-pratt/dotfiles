@@ -62,7 +62,7 @@
     kdePackages.polkit-kde-agent-1
   ];
 
-  home-manager.users.rpratt = {
+  home-manager.users.marten = {
     imports = [ ./features/hyprland.nix ];
 
     home.file."wallpapers/.keep".text = "";

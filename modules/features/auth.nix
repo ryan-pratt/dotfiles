@@ -31,7 +31,7 @@ in
     enableGnomeKeyring = true; # make PAM tell gnome-keyring to start
   });
 
-  home-manager.users.rpratt.services.gnome-keyring = {
+  home-manager.users.marten.services.gnome-keyring = {
     enable = true;
     components = [ "pkcs11" "secrets" ];
   };

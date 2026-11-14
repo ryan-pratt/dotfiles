@@ -1,8 +1,8 @@
 { config, pkgs, inputs, ... }:
 
 {
-  home.username = "rpratt";
-  home.homeDirectory = "/home/rpratt";
+  home.username = "marten";
+  home.homeDirectory = "/home/marten";
 
   home.file = let
     dotfilesContent = builtins.attrNames (builtins.readDir ../dotfiles);

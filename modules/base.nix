@@ -14,7 +14,7 @@
     ];
   };
 
-  users.users.rpratt = {
+  users.users.marten = {
     isNormalUser = true;
     shell = pkgs.zsh;
     extraGroups = [

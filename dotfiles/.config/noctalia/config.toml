@@ -107,7 +107,7 @@ source = "wallpaper"
     builtin_ids = [ "btop", "ghostty", "hyprland", "starship" ]
 
 [wallpaper]
-directory = "/home/rpratt/wallpapers"
+directory = "/home/marten/wallpapers"
 transition = [ "fade" ]
 
     [wallpaper.automation]

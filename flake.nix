@@ -33,7 +33,7 @@
               backupFileExtension = "bak";
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.rpratt = {
+              users.marten = {
                 imports = [ ./home/base.nix ];
                 home.stateVersion = "26.05";
               };
@@ -66,7 +66,7 @@
               backupFileExtension = "bak";
               useGlobalPkgs = true;
               useUserPackages = true;
-              users.rpratt = {
+              users.marten = {
                 imports = [ ./home/base.nix ];
                 home.stateVersion = "26.05";
               };
