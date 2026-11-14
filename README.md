@@ -11,12 +11,17 @@ dotfiles/
 │   ├── inversion/                     # ThinkPad
 │   │   ├── default.nix
 │   │   └── hardware-configuration.nix
+│   ├── mesocyclone/                   # Home server (NAS + headless dev box)
+│   │   ├── default.nix
+│   │   ├── disko.nix                  # Declarative disk layout
+│   │   └── hardware-configuration.nix
 │   └── microburst/                    # Desktop
 │       ├── default.nix
 │       └── hardware-configuration.nix
 ├── modules/                           # Reusable system modules
 │   ├── base.nix
-│   └── desktop.nix                    # Desktop environment (Hyprland, Noctalia)
+│   ├── desktop.nix                    # Desktop environment (Hyprland, Noctalia)
+│   └── server.nix                     # Headless server (NAS, ZFS, tailscale)
 ├── home/                              # Home-Manager configs
 │   ├── base.nix
 │   ├── desktop.nix

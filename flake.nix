@@ -3,6 +3,10 @@
 
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-26.05";
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     helium = {
       url = "github:AlvaroParker/helium-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -62,6 +66,30 @@
                 }
               ];
             };
+            home-manager = {
+              backupFileExtension = "bak";
+              useGlobalPkgs = true;
+              useUserPackages = true;
+              users.marten = {
+                imports = [ ./home/base.nix ];
+                home.stateVersion = "26.05";
+              };
+              extraSpecialArgs = {
+                inherit inputs;
+              };
+            };
+          }
+        ];
+      };
+
+      mesocyclone = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./hosts/mesocyclone
+          inputs.disko.nixosModules.disko
+          home-manager.nixosModules.home-manager
+          {
             home-manager = {
               backupFileExtension = "bak";
               useGlobalPkgs = true;
