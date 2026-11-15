@@ -29,7 +29,9 @@
   networking = {
     useNetworkd = true;
     useDHCP = false;
+    nftables.enable = true;
     firewall = {
+      backend = "nftables";
       checkReversePath = false;
       trustedInterfaces = [ "tailscale0" ];
       extraInputRules = ''
