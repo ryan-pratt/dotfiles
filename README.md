@@ -11,7 +11,7 @@ dotfiles/
 │   ├── inversion/                     # ThinkPad
 │   │   ├── default.nix
 │   │   └── hardware-configuration.nix
-│   ├── mesocyclone/                   # Home server (NAS + headless dev box)
+│   ├── mesocyclone/                   # Home server
 │   │   ├── default.nix
 │   │   ├── disko.nix                  # Declarative disk layout
 │   │   └── hardware-configuration.nix
@@ -46,6 +46,8 @@ stow -d dotfiles -t "$HOME" .
 ```
 
 ## Git LFS
+
+**Note:** This is only relevant for `hailstone`, which is no longer in my fleet.
 
 This repository uses Git LFS for large firmware files in the `hosts/hailstone/firmware/` directory. After cloning:
 
