@@ -96,7 +96,7 @@
 
   services.samba-wsdd.enable = true;
 
-  systemd.services.smbd = {
+  systemd.services.samba-smbd = {
     after = [ "zfs-mount.service" ];
     wants = [ "zfs-mount.service" ];
   };
