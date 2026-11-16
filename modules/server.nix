@@ -14,6 +14,7 @@
     ];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIhU+bHZeTW/DgyjgwCIrukQ/PcwtCnLmwG2KgCGwqF6 ryan.pratt@live.com"
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEFpcJXb4u6QJ9+cT3C3FQ3AwHSX+T/Xt8c5RKG20H2n ipad@termix"
     ];
   };
 
