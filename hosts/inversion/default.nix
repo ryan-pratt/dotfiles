@@ -29,6 +29,25 @@
     }
   ];
 
+  boot.supportedFilesystems = [ "cifs" ];
+
+  fileSystems."/mnt/tornado" = {
+    device = "//10.1.2.10/nas";
+    fsType = "cifs";
+    options = [
+      "credentials=/etc/cifs-credentials"
+      "uid=1000"
+      "gid=100"
+      "file_mode=0664"
+      "dir_mode=0775"
+      "noauto"
+      "x-systemd.automount"
+      "x-systemd.idle-timeout=60"
+      "x-systemd.mount-timeout=10"
+      "_netdev"
+    ];
+  };
+
   networking.networkmanager.enable = true;
 
   hardware.bluetooth.enable = true;
