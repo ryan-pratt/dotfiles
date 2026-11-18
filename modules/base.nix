@@ -82,6 +82,7 @@
       openssl
       parted
       proton-vpn-cli
+      pv
       ripgrep
       starship
       tmux
