@@ -5,7 +5,8 @@ start = [
     "control-center",
     "notifications",
     "clipboard",
-    "workspaces"
+    "workspaces",
+    "media"
 ]
 center = []
 end = [

@@ -66,5 +66,28 @@
     imports = [ ./features/hyprland.nix ];
 
     home.file."wallpapers/.keep".text = "";
+
+    home.packages = with pkgs; [ rmpc ];
+
+    services.mpd = {
+      enable = true;
+      musicDirectory = "/mnt/tornado/Music";
+      extraConfig = ''
+        audio_output {
+          type "pipewire"
+          name "PipeWire"
+        }
+      '';
+    };
+
+    services.mpd-mpris.enable = true; # for noctalia integration
+
+    systemd.user.services.mpd = {
+      Unit.After = [ "pipewire.service" "wireplumber.service" ];
+      Service = {
+        Restart = "on-failure";
+        RestartSec = "10s";
+      };
+    };
   };
 }
